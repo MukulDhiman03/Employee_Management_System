@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+</head>
+
+
+<body>
+    <div class="conatiner" style="text-align: center">
+        {%include 'navbar.html' %}
+
+        <h1>Welcome to our website</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            ipsam! Sapiente hic aliquam dicta! Sequi mollitia voluptate vero
+            reprehenderit aspernatur impedit suscipit obcaecati minima eveniet quam
+            neque unde delectus quaerat exercitationem optio eius, nostrum iusto
+            libero maxime porro, deserunt, assumenda itaque. Blanditiis excepturi
+            libero ea ratione dolorem in fuga ducimus!
+        </p>
+        <form action="/home/" method="POST">
+            {% csrf_token %}
+            <input type="checkbox" name="name" />
+            <button>Send</button>
+        </form>
+        <button>Conatct Us</button>
+        <hr>
+        <hr>
+        <hr>
+        {% if isActive %}
+        <h1>{{date}}</h1>
+        <h1>Stundent Name: {{student_data.student_name}}</h1>
+        <h1>Stundent College: {{student_data.student_college}}</h1>
+        <h1>Stundent College: {{student_data.student_city}}</h1>
+
+        {% for p in list_of_programs %}
+        <h1>{{p}}</h1>
+        {% endfor %}
+
+        {% endif %}
+
+
+    </div>
+
+</body>
+
+</html>
