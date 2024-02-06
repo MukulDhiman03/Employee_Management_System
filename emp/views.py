@@ -38,11 +38,7 @@ def add_emp(request):
             e.working=True
         
         #save the object
-        e.save()
-        
-        
-        
-        
+        e.save()      
         return redirect("/emp/home/")
     return render(request,"emp/add_emp.html",{})
 
@@ -52,4 +48,8 @@ def delete_emp(request,emp_id):
     emp=Emp.objects.get(pk=emp_id)
     emp.delete()
     return redirect("/emp/home/")
-    
+
+
+def update_emp(request, emp_id):
+    emp = Emp.objects.get(pk=emp_id)
+    return render(request, "emp/update_emp.html", {'emp': emp})
